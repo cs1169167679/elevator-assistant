@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>电梯维修助手</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 顶部标题（长按10秒进入管理员模式） -->
+  <header id="appHeader">
+    <h1>电梯维修助手</h1>
+    <span id="lockIcon">🔒</span>
+  </header>
+
+  <!-- 搜索栏 -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="搜索品牌或故障码...">
+  </div>
+
+  <!-- 品牌列表 -->
+  <section id="brandList" class="section"></section>
+
+  <!-- 底部功能导航 -->
+  <nav class="bottom-nav">
+    <button data-tab="brands" class="active">品牌</button>
+    <button data-tab="favorites">⭐收藏</button>
+    <button data-tab="experience">📝经验</button>
+    <button data-tab="debug">🔧调试资料</button>
+  </nav>
+
+  <!-- 内容区域（收藏/经验/调试资料） -->
+  <section id="contentArea"></section>
+
+  <!-- 添加按钮（浮动） -->
+  <button id="addBtn" class="fab" style="display:none;">+</button>
+
+  <!-- 密码弹窗（管理员） -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content">
+      <h3>管理员验证</h3>
+      <input type="password" id="adminPassword" placeholder="请输入密码" inputmode="numeric">
+      <div class="modal-btns">
+        <button id="adminConfirm">确认</button>
+        <button id="adminCancel">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 删除确认弹窗 -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <h3>⚠️ 确认删除</h3>
+      <p>此操作不可撤销，请输入密码确认：</p>
+      <input type="password" id="deletePassword" placeholder="请输入删除密码" inputmode="numeric">
+      <div class="modal-btns">
+        <button id="deleteConfirm">确认删除</button>
+        <button id="deleteCancel">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="libs/localforage.min.js"></script>
+  <script src="libs/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
